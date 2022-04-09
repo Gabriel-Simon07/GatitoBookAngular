@@ -5,6 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { LoginComponent } from './login/login.component';
   imports: [
     CommonModule,
     HomeRoutingModule,
+    FormsModule
   ],
   exports: [HomeComponent]
 })
