@@ -20,8 +20,8 @@ export class NovoUsuarioComponent implements OnInit {
   ngOnInit(): void {
     this.novoUsuarioForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      userName: ['', [minusculoValidator], [this.usuarioJaExistenteService.usuarioJaExiste()]],
-      fullName: ['', [Validators.required, Validators.minLength(4)]],
+      userName: ['', [Validators.required, Validators.minLength(4)]],
+      fullName: [''],
       password: ['']
     }
     );
