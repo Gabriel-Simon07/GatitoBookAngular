@@ -8,12 +8,17 @@ export class UsuarioExiste {
 
   constructor(private novoUsuarioService: NovoUsuarioService) { }
 
-  usuarioJaExiste() {
+  usuarioJaExite() {
     return (control: AbstractControl) => {
-      return control.valueChanges
-      .pipe(
-        switchMap((nomeUsuario) => this.novoUsuarioService.verificaUsuarioExistente(nomeUsuario))
-      ), map((usuarioExiste) =>(usuarioExiste ? {usuarioExistente: true} : null)), first();
-    }
+      return control.valueChanges.pipe(
+        switchMap((nomeUsuario) =>
+          this.novoUsuarioService.verificaUsuarioExistente(nomeUsuario)
+        ),
+        map((usuarioExiste) =>
+          usuarioExiste ? { usuarioExistente: true } : null
+        ),
+        first()
+      );
+    };
   }
 }
