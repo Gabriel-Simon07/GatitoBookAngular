@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { minusculoValidator } from './minusculo.validatitor';
 import { UsuarioExiste } from './usuario-existe.service';
+import { usuarioSenhaIguaisValidator } from './usuario-senha-iguais.validator';
 
 @Component({
   selector: 'app-novo-usuario',
@@ -23,7 +24,8 @@ export class NovoUsuarioComponent implements OnInit {
       userName: ['', [this.usuarioJaExistenteService.usuarioJaExite()], [minusculoValidator]],
       fullName: ['', [Validators.required, Validators.minLength(4)]],
       password: ['']
-    }
-    );
+    }, {
+      validators: [usuarioSenhaIguaisValidator]
+    });
   }
 }
