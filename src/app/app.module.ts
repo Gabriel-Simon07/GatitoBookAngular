@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { CabecalhoModule } from './componentes/cabecalho/cabecalho.module';
 
 @NgModule({
   declarations: [
@@ -13,8 +12,7 @@ import { CabecalhoModule } from './componentes/cabecalho/cabecalho.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    CabecalhoModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
