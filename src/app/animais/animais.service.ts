@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { TokenService } from '../autenticacao/token.service';
-import { Animais } from './animal';
+import { Animais, Animal } from './animal';
 
 const API = environment.apiUrl;
 
@@ -23,6 +23,12 @@ export class AnimaisService {
     return this.http.get<Animais>(`${API}/${nomeUsuario}/photos`, {
       headers,
     });
+  }
+
+  buscaPorId(id: number):Observable<Animal> {
+    const token = this.tokenService.retornaToken();
+    const headers = new HttpHeaders().append('x-access-token', token);
+    return this.http.get<Animal>(`${API}/photos/${id}`, {headers});
   }
 }
 
