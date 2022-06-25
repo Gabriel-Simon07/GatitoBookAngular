@@ -12,6 +12,7 @@ const routes: Routes = [
   resolve: {
     animais: ListaAnimaisResolver,
   }
+
   },
   {
     path:'novo',
